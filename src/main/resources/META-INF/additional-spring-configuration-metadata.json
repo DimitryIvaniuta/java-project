@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "config.files.root",
+      "type": "java.lang.String",
+      "description": "Files root"
+    },
+    {
+      "name": "app.host",
+      "type": "java.lang.String",
+      "description": "Description for app.host."
+    }
+  ] }
