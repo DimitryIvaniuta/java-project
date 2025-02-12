@@ -1,6 +1,7 @@
 package com.javaproject.server.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 import java.util.stream.Stream;
 
@@ -25,9 +27,29 @@ import java.util.stream.Stream;
 public class SecurityConfig {
 
     /**
+     * Enable CORS.
+     */
+    @Value("${config.cors.enabled}")
+    private boolean corsEnabled;
+
+    /**
      * Login page.
      */
-    public static final String LOGIN_PAGE = "/api/public/login";
+    public static final String LOGIN_PAGE = "/api/auth/login";
+
+    /**
+     * CorsConfigurationSource.
+     */
+    private final CorsConfigurationSource corsConfigurationSource;
+
+    /**
+     * SecurityConfig constructor.
+     *
+     * @param corsConfigurationSource service value to autowire
+     */
+    public SecurityConfig(final CorsConfigurationSource corsConfigurationSource) {
+        this.corsConfigurationSource = corsConfigurationSource;
+    }
 
     /**
      * Maximum sessions number.
@@ -70,10 +92,8 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/", true)
                         .permitAll()
                 )
-                .logout(logout -> logout
-                        .logoutSuccessUrl(LOGIN_PAGE + "?logout")
-                        .permitAll()
-                )
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(exception -> exception
                         .defaultAuthenticationEntryPointFor(
                                 new LoginUrlAuthenticationEntryPoint(LOGIN_PAGE),
@@ -85,8 +105,12 @@ public class SecurityConfig {
                         .maximumSessions(MAXIMUM_SESSIONS)
                         .expiredUrl(LOGIN_PAGE + "?expired")
                         .sessionRegistry(sessionRegistry())
-                );
+                )
+                .cors(cors -> cors.configurationSource(corsConfigurationSource));
 
+//        if (!corsEnabled) {
+//            http.cors(AbstractHttpConfigurer::disable);
+//        }
         return http.build();
     }
 

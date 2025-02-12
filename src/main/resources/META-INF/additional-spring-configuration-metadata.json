@@ -9,5 +9,10 @@
       "name": "app.host",
       "type": "java.lang.String",
       "description": "Description for app.host."
+    },
+    {
+      "name": "config.cors.enabled",
+      "type": "java.lang.String",
+      "description": "Description for config.cors.enabled."
     }
   ] }

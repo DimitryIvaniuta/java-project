@@ -59,6 +59,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-authorization-server'
     implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.4.1'
 
+    // API for creating and validating JWTs
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    // JJWT implementation
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    // JJWT Jackson support
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
     testImplementation 'org.springframework.security:spring-security-test'
 
     // PostgreSQL Driver
