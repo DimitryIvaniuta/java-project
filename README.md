@@ -144,3 +144,9 @@ Run unit and integration tests using:
   ```bash
   ./gradlew test
   ```
+  
+---
+
+## 📬 Contact
+
+**Dzmitry Ivaniuta** — [diafter@gmail.com](mailto:diafter@gmail.com) — [GitHub](https://github.com/DimitryIvaniuta)
