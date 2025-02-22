@@ -1,22 +1,22 @@
 # Java Spring Boot Backend
 
-## 📋 Table of Contents
-- [📋 Table of Contents](#-table-of-contents)
-- [🚀 Overview](#-overview)
-- [⚙️ Technologies Used](#️-technologies-used)
-- [📁 Project Structure](#-project-structure)
-- [🔑 Authentication & Authorization](#-authentication--authorization)
-- [🔗 API Endpoints](#-api-endpoints)
-- [🛡️ Security Configuration](#️-security-configuration)
-- [🗄️ Database Configuration](#️-database-configuration)
-- [🚀 Running the Application](#-running-the-application)
-- [🧪 Testing](#-testing)
-- [📖 Useful Commands](#-useful-commands)
+## Table of Contents
+- [Table of Contents](#-table-of-contents)
+- [Overview](#-overview)
+- [️ Technologies Used](#️-technologies-used)
+- [Project Structure](#-project-structure)
+- [Authentication & Authorization](#-authentication--authorization)
+- [API Endpoints](#-api-endpoints)
+- [Security Configuration](#️-security-configuration)
+- [Database Configuration](#️-database-configuration)
+- [Running the Application](#-running-the-application)
+- [Testing](#-testing)
+- [Useful Commands](#-useful-commands)
 
-## 🚀 Overview
+## Overview
 This is the backend part of the project built with **Java Spring Boot**. It handles user authentication using **OAuth2** and JWT, manages CORS settings, and serves as the API provider for the React frontend.
 
-## ⚙️ Technologies Used
+##️ Technologies Used
 - **Java 17**
 - **Spring Boot**
 - **Spring Security**
@@ -27,7 +27,7 @@ This is the backend part of the project built with **Java Spring Boot**. It hand
 - **Gradle**
 - **Lombok**
 
-## 📁 Project Structure
+## Project Structure
 ```
 backend/
 ├── src/
@@ -52,13 +52,13 @@ backend/
 └── build.gradle                             # Gradle Build File
 ```
 
-## 🔑 Authentication & Authorization
+## Authentication & Authorization
 - **OAuth2** is used for secure authentication.
 - **JWT** is generated upon successful login.
 - Passwords are hashed using **BCryptPasswordEncoder**.
 - Security configuration ensures protected routes and role-based access.
 
-## 🔗 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/login` - Authenticate user and return JWT.
@@ -68,12 +68,12 @@ backend/
 - `GET /api/users` - Fetch all users (secured).
 - `GET /api/users/{id}` - Fetch user by ID (secured).
 
-## 🛡️ Security Configuration
+## Security Configuration
 - **Spring Security** is configured with custom JWT filters.
 - CORS is enabled to allow requests from the React frontend (`http://localhost:4200`).
 - CSRF protection is disabled for API usage.
 
-## 🗄️ Database Configuration
+## Database Configuration
 - Configured using **Spring Data JPA**.
 - Default in-memory **H2** database (for development).
 - Supports **MySQL**/**PostgreSQL** in production.
@@ -96,7 +96,7 @@ spring:
       enabled: true
 ```
 
-## 🚀 Running the Application
+## Running the Application
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/your-repo/backend.git
@@ -118,13 +118,13 @@ spring:
    http://localhost:5000/api/
    ```
 
-## 🧪 Testing
+## Testing
 Run unit and integration tests using:
 ```bash
 ./gradlew test
 ```
 
-## 📖 Useful Commands
+## Useful Commands
 - **Build the project:**
   ```bash
   ./gradlew build
@@ -147,6 +147,6 @@ Run unit and integration tests using:
   
 ---
 
-## 📬 Contact
+## Contact
 
 **Dzmitry Ivaniuta** — [diafter@gmail.com](mailto:diafter@gmail.com) — [GitHub](https://github.com/DimitryIvaniuta)
