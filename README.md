@@ -16,7 +16,7 @@
 ## Overview
 This is the backend part of the project built with **Java Spring Boot**. It handles user authentication using **OAuth2** and JWT, manages CORS settings, and serves as the API provider for the React frontend.
 
-##️ Technologies Used
+## Technologies Used
 - **Java 17**
 - **Spring Boot**
 - **Spring Security**
